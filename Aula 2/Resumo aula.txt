@@ -1,0 +1,52 @@
+Resumo da Aula 2
+
+1. Arquivo index.php
+   - Descrição Geral: Página inicial do sistema de login.
+   - Estrutura HTML:
+     - Bootstrap: Utilizado para estilização (v5.3.3).
+     - Corpo da Página:
+       - Página centrada vertical e horizontalmente (d-flex justify-content-center align-items-center vh-100 bg-info).
+       - O formulário de login é inserido dentro de um cartão (col-md-4 card shadow-sm p-4).
+     - Formulário:
+       - Campos para o usuário e senha (input type="text" e input type="password", respectivamente).
+       - Envio de dados para verificar.php via método POST.
+       - Botão "entrar" estilizado com Bootstrap (btn btn-success).
+
+2. Arquivo conexao.php
+   - Descrição Geral: Script para conexão ao banco de dados.
+   - Configuração de Conexão:
+     - Credenciais:
+       - Servidor: 'localhost'
+       - Banco de Dados: 'cy3_sab_10h'
+       - Usuário: 'root'
+       - Senha: '' (vazia)
+     - MySQLi: Estabelece a conexão utilizando o mysqli.
+     - Verificação de Erro: 
+       - Se houver falha na conexão, o script interrompe e exibe a mensagem de erro.
+
+3. Arquivo verificar.php
+   - Descrição Geral: Script para validação do login.
+   - Fluxo de Verificação:
+     - Início de Sessão: session_start() para armazenar dados de sessão.
+     - Recebimento de Dados:
+       - Recebe 'user' e 'pass' do formulário de login (index.php).
+     - Consulta SQL:
+       - Verifica se há uma correspondência no banco de dados com o usuário e senha fornecidos.
+       - Resultado da Consulta:
+         - Se o usuário for encontrado (num_rows == 1), os dados são armazenados na sessão e o usuário é redirecionado para painel.php.
+         - Caso contrário, o usuário é redirecionado de volta para index.php com um parâmetro de erro (?error).
+
+4. Arquivo painel.php
+   - Descrição Geral: Página de painel para o usuário autenticado.
+   - Sessão do Usuário:
+     - Início de Sessão: session_start() para acessar dados armazenados na sessão.
+     - Exibe uma mensagem de boas-vindas com o nome de usuário (Bem vindo) e a senha fornecida durante o login.
+   - Conteúdo HTML:
+     - O corpo da página exibe Bem vindo [usuário] e Sua senha: [senha].
+
+Observações
+- Segurança: 
+  - A senha é exibida no painel (painel.php), o que não é seguro. Deve-se evitar exibir senhas em qualquer parte da aplicação.
+  - A consulta SQL em verificar.php está suscetível a injeção de SQL. É recomendável usar prepared statements para evitar vulnerabilidades.
+- Fluxo de Autenticação:
+  - Simples, mas funcional para um ambiente de aprendizado. Após o login, a sessão armazena as informações do usuário, permitindo o acesso ao painel.
