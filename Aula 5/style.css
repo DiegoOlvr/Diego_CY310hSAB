@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -23,6 +24,12 @@ body {
 
 h1 {
     font-size: 50px;
+}
+
+table tbody{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 table th {
@@ -48,4 +55,36 @@ table tr.infos {
 
 table tr td {
     padding: 10px;
+}
+
+.add {
+    display: grid;
+    place-items: center;
+    background-color: rgb(242, 242, 242);
+    transition: background 0.3s ease-in-out;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+
+.add:hover {
+    background-color: rgb(205, 205, 205);
+    transition: background 0.3s ease-in-out;
+}
+
+.botao_add {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+td {
+    width: 100%;
+    /* background-color: rebeccapurple; */
+    border: 0.5px solid rgb(210, 210, 210);
+}
+
+a {
+    /* background-color: red; */
 }
