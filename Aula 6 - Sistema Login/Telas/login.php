@@ -24,6 +24,7 @@
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-success">entrar</button>
+                        <a href="cadastrar.php" class="btn btn-danger">cadastrar</a>
                     </div>
                 </form>
 

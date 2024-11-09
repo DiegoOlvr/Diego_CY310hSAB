@@ -18,7 +18,7 @@ if (isset($usuario) && isset($senha)) {
         
         $_SESSION['id'] = $resultado['id'];
 
-        header('Location: painel.php');
+        header('Location: painel.php?cadastrado=nao');
     } else {
         header('Location: login.php?error');
     }
