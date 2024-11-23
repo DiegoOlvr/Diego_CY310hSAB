@@ -79,17 +79,25 @@ $tabelas = [
 ];
 
 foreach($tabelas as $nome => $sql){
-    if ($mysqli ->query($sql) === TRUE){
-        echo "Tabela '$nome' criada com sucesso!";
+    $sql_check_table = "SHOW TABLES LIKE '$nome'";
+    $resultado = $mysqli->query($sql_check_table);
+
+    if ($resultado->num_rows == 0){
+        if ($mysqli ->query($sql) === TRUE){
+            echo "Tabela '$nome' criada com sucesso!";
+        }
+        else{
+            echo "erro ao criar tabela '$nome': " . $mysqli->error . "\n";
+        }
+    }else{
+        echo "Tabela '$nome' já existe<br>";
     }
-    else{
-        echo "erro ao criar tabela '$nome': " . $mysqli->error . "\n";
-    }
+
 }
 
 
 
 // FECHA A CONEXÃO
-$mysqli->close();
+// $mysqli->close();
 
 ?>
