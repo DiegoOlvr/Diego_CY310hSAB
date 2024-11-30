@@ -46,7 +46,7 @@
                             <td>'. $id .' </td>
                             <td>'. $nome .'</td>
                             <td>'. $cidade .'</td>
-                            <td><a href="">editar</a> | <a href="../../db/deletar_fornecedores.php?id='. $id . '">deletar</a></td>
+                            <td><a href="formulario_editar.php?id='. $id . '">editar</a> | <a href="../../db/deletar_fornecedor.php?id='. $id . '">deletar</a></td>
                         </tr>';
                 }
             }
